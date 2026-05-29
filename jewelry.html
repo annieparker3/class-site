@@ -4,106 +4,217 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StyleUp - Jewelry Collection</title>
+  <!-- Google Fonts for Premium Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            peach: '#FFCBA4',
+            gold: '#D4AF37',
+            'gold-dark': '#B8860B',
+            'peach-light': '#FFE5D9',
+            'gold-light': '#FFF8DC',
+            'gray-light': '#faf8f6',
+            'gray-border': '#f0e6dc',
+          }
+        }
+      }
+    }
+  </script>
+  
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Custom Hamburger Menu Toggle Logic */
+    #nav-toggle:checked ~ .navbar {
+      max-height: 28rem;
+      opacity: 1;
+    }
+  </style>
 </head>
-<body>
+<body class="font-sans bg-white text-slate-800 antialiased">
 
   <!-- ===== HEADER & NAVIGATION ===== -->
-  <header class="site-header">
-    <a href="index.html" class="logo">StyleUp</a>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center transition-all duration-300">
+    <a href="index.html" class="logo font-display font-bold text-xl tracking-widest text-gold hover:text-gold-dark transition-colors duration-200 uppercase">StyleUp</a>
     
     <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label">
-      <span></span>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle hidden">
+    <label for="nav-toggle" class="nav-toggle-label md:hidden flex flex-col justify-center items-center gap-1.5 cursor-pointer w-8 h-8">
+      <span class="w-6 h-0.5 bg-slate-800 transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-slate-800 transition-all duration-300"></span>
+      <span class="w-6 h-0.5 bg-slate-800 transition-all duration-300"></span>
     </label>
 
     <!-- Navigation Menu -->
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tops.html">Tops</a></li>
-        <li><a href="pants.html">Pants</a></li>
-        <li><a href="skirts.html">Skirts</a></li>
-        <li><a href="shoes.html">Shoes</a></li>
-        <li><a href="jewelry.html" class="active">Jewelry</a></li>
-        <li><a href="payment.html">Checkout</a></li>
+    <nav class="navbar md:flex md:items-center md:static absolute top-full left-0 w-full md:w-auto bg-white/95 md:bg-transparent max-h-0 md:max-h-none opacity-0 md:opacity-100 overflow-hidden transition-all duration-300 border-b md:border-b-0 border-slate-100">
+      <ul class="flex flex-col md:flex-row gap-6 p-6 md:p-0">
+        <li><a href="index.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Home</a></li>
+        <li><a href="tops.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Tops</a></li>
+        <li><a href="pants.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Pants</a></li>
+        <li><a href="skirts.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Skirts</a></li>
+        <li><a href="shoes.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Shoes</a></li>
+        <li><a href="jewelry.html" class="font-display font-medium text-sm tracking-widest text-gold border-b-2 border-gold pb-1 uppercase">Jewelry</a></li>
+        <li><a href="payment.html" class="font-display font-medium text-sm tracking-widest text-slate-600 hover:text-gold transition-colors duration-200 uppercase pb-1">Checkout</a></li>
       </ul>
     </nav>
 
-    <div class="cart-icon">🛒</div>
+    <div class="cart-icon text-xl cursor-pointer hover:scale-110 transition-transform duration-200">🛒</div>
   </header>
 
   <!-- ===== MAIN CONTENT ===== -->
-  <main>
+  <main class="max-w-7xl mx-auto px-6 py-12">
     
-    <h2 class="page-title">Shop Jewelry</h2>
+    <h2 class="font-display text-center text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-12 uppercase">Shop Jewelry</h2>
 
     <!-- PRODUCT GRID -->
-    <div class="product-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <!-- Product 1 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Gold Delicate Necklace</h3>
-        <p>$79.00</p>
-        <p class="description">18K gold plated. Minimalist elegance.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j1.webp" alt="Gold Delicate Necklace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Gold Delicate Necklace</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">18K gold plated. Minimalist elegance.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$79.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 2 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Pearl Stack Ring</h3>
-        <p>$65.00</p>
-        <p class="description">Classic pearls. Vintage-inspired design.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j2.webp" alt="Pearl Stack Ring" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Pearl Stack Ring</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Classic pearls. Vintage-inspired design.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$65.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 3 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Diamond Stud Earrings</h3>
-        <p>$125.00</p>
-        <p class="description">Crystal clear shine. Timeless essential.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j3.webp" alt="Diamond Stud Earrings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Diamond Stud Earrings</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Crystal clear shine. Timeless essential.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$125.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 4 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Layered Gold Bracelets</h3>
-        <p>$85.99</p>
-        <p class="description">Mix and match. Versatile and chic.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j4.webp" alt="Layered Gold Bracelets" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Layered Gold Bracelets</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Mix and match. Versatile and chic.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$85.99</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 5 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Silver Pendant Necklace</h3>
-        <p>$68.00</p>
-        <p class="description">Sleek and modern. Statement piece.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j5.webp" alt="Silver Pendant Necklace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Silver Pendant Necklace</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Sleek and modern. Statement piece.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$68.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 6 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Rose Gold Watch</h3>
-        <p>$189.00</p>
-        <p class="description">Luxury timepiece. Contemporary style.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j6.webp" alt="Rose Gold Watch" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Rose Gold Watch</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Luxury timepiece. Contemporary style.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$189.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 7 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Moonstone Ring</h3>
-        <p>$95.00</p>
-        <p class="description">Ethereal glow. Bohemian charm.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j7.webp" alt="Moonstone Ring" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Moonstone Ring</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Ethereal glow. Bohemian charm.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$95.00</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
       <!-- Product 8 -->
-      <div class="product-card">
-        <div class="image-placeholder"></div>
-        <h3>Gold Hoop Earrings</h3>
-        <p>$59.99</p>
-        <p class="description">Classic hoops. Size M. Everyday wear.</p>
+      <div class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-50 flex items-center justify-center">
+          <img src="j8.webp" alt="Gold Hoop Earrings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95">
+        </div>
+        <div class="p-5 flex flex-col flex-grow justify-between gap-2">
+          <div>
+            <h3 class="font-display text-sm font-semibold tracking-wide text-slate-800 group-hover:text-gold transition-colors duration-200 uppercase">Gold Hoop Earrings</h3>
+            <p class="mt-2 text-xs font-normal tracking-wide text-slate-500 leading-relaxed">Classic hoops. Size M. Everyday wear.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <span class="font-display text-base font-bold text-slate-900 tracking-tight">$59.99</span>
+            <button class="text-xs font-semibold tracking-wider text-gold hover:text-gold-dark uppercase transition-colors duration-200">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -111,9 +222,9 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2026 StyleUp Fashion. All rights reserved.</p>
-    <p>Adorn yourself with our exquisite jewelry collection.</p>
+  <footer class="bg-slate-900 text-white text-center py-12 px-6 mt-12 border-t border-slate-800">
+    <p class="text-sm font-light text-slate-400">&copy; 2026 StyleUp Fashion. All rights reserved.</p>
+    <p class="text-xs font-light text-slate-500 mt-2">Adorn yourself with our exquisite jewelry collection.</p>
   </footer>
 
 </body>

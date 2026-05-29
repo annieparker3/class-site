@@ -163,6 +163,41 @@ body {
 }
 
 /* ===================================================
+   COMING SOON BANNER
+   ==================================================== */
+
+.coming-soon-banner {
+  background: linear-gradient(135deg, #d4af37 0%, #ffcba4 100%);
+  padding: 60px 5%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.coming-soon-message {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.coming-soon-message h2 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coming-soon-message p {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ===================================================
    HERO SECTION (Full Width, Responsive)
    ==================================================== */
 

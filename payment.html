@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleUp - Checkout & Payment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER & NAVIGATION ===== -->
+  <header class="site-header">
+    <a href="index.html" class="logo">StyleUp</a>
+    
+    <!-- Mobile Menu Toggle -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tops.html">Tops</a></li>
+        <li><a href="pants.html">Pants</a></li>
+        <li><a href="skirts.html">Skirts</a></li>
+        <li><a href="shoes.html">Shoes</a></li>
+        <li><a href="jewelry.html">Jewelry</a></li>
+        <li><a href="payment.html" class="active">Checkout</a></li>
+      </ul>
+    </nav>
+
+    <div class="cart-icon">🛒</div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    
+    <div class="payment-container">
+      <h2>Complete Your Purchase</h2>
+
+      <!-- ORDER SUMMARY (Left Side) -->
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        
+        <div class="summary-item">
+          <span>Classic Silk Blouse</span>
+          <span>$89.00</span>
+        </div>
+        
+        <div class="summary-item">
+          <span>Black High-Waist Trousers</span>
+          <span>$89.00</span>
+        </div>
+        
+        <div class="summary-item">
+          <span>Midi Pencil Skirt</span>
+          <span>$74.00</span>
+        </div>
+        
+        <div class="summary-item">
+          <span>Classic Black Heels</span>
+          <span>$95.00</span>
+        </div>
+        
+        <div class="summary-item">
+          <span>Gold Delicate Necklace</span>
+          <span>$79.00</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span>$426.00</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Shipping</span>
+          <span>$12.50</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Tax</span>
+          <span>$35.08</span>
+        </div>
+
+        <div class="summary-item">
+          <span>Total</span>
+          <span>$473.58</span>
+        </div>
+      </div>
+
+      <!-- PAYMENT FORM (Right Side) -->
+      <form class="payment-form">
+        
+        <!-- Billing Information Section -->
+        <fieldset style="border: none; padding: 0;">
+          <legend style="font-weight: 700; margin-bottom: 15px; color: var(--text-color);">Billing Information</legend>
+          
+          <div class="form-group">
+            <label for="full-name">Full Name *</label>
+            <input type="text" id="full-name" name="fullName" required placeholder="Jane Doe">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Street Address *</label>
+            <input type="text" id="address" name="address" required placeholder="123 Fashion Lane">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" required placeholder="New York">
+            </div>
+            <div class="form-group">
+              <label for="state">State/Province *</label>
+              <input type="text" id="state" name="state" required placeholder="NY">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="zip">ZIP/Postal Code *</label>
+              <input type="text" id="zip" name="zip" required placeholder="10001">
+            </div>
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <input type="text" id="country" name="country" required placeholder="United States">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Payment Information Section -->
+        <fieldset style="border: none; padding: 0; margin-top: 30px;">
+          <legend style="font-weight: 700; margin-bottom: 15px; color: var(--text-color);">Payment Information</legend>
+          
+          <div class="form-group">
+            <label for="card-name">Name on Card *</label>
+            <input type="text" id="card-name" name="cardName" required placeholder="Jane Doe">
+          </div>
+
+          <div class="form-group">
+            <label for="card-number">Card Number *</label>
+            <input type="text" id="card-number" name="cardNumber" required placeholder="1234 5678 9101 1121" maxlength="19">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiry">Expiry Date (MM/YY) *</label>
+              <input type="text" id="expiry" name="expiry" required placeholder="12/25" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV *</label>
+              <input type="text" id="cvv" name="cvv" required placeholder="123" maxlength="4">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Terms & Conditions -->
+        <div class="form-group" style="margin-top: 20px;">
+          <label style="display: flex; align-items: center; gap: 10px; font-weight: 400; cursor: pointer;">
+            <input type="checkbox" name="terms" required style="width: 18px; height: 18px; cursor: pointer;">
+            <span>I agree to the terms and conditions *</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Proceed to Payment</button>
+        
+        <!-- Back to Shopping Link -->
+        <p style="text-align: center; margin-top: 20px;">
+          <a href="index.html" style="color: var(--accent-purple); text-decoration: none; font-size: 0.95rem;">Continue Shopping</a>
+        </p>
+      </form>
+
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2026 StyleUp Fashion. All rights reserved.</p>
+    <p>Secure checkout powered by StyleUp.</p>
+  </footer>
+
+</body>
+</html>
